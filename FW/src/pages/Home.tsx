@@ -1,5 +1,6 @@
 import { Brain, Menu, X } from "lucide-react"
 import { useState } from "react"
+import SideHero from "../components/SideHero";
 
 
 const Home = () => {
@@ -142,9 +143,54 @@ const Home = () => {
     {/* Main Content */}
       <main>
         <div className="pt-10 sm:pt-6 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+          <div className="mx-auto max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-          <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text">
+          <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
+            <div className="lg:py-24">
+              <h1 className="mt-4 text-4xl tracking-tight font-extrabold text-gray-900 sm:mt-5 sm:text-5xl lg:mt-6">
+                <span className="block">Your Second Brain for </span>
+                <span className="block text-indigo-600">Better Thinking</span>
+              </h1>
+              <p className="mt-3 text-lgxt-base text-gray-600 sm:mt-5 sm:text-xl lg:text-lg">
+                {isLoggedIn 
+                  ? `Welcome back,${username}! Continue organizing your thoughts and notes in your personal knowledge base.` 
+                  : "Capture,organize,and retrieve your thoughts and notes. Never lose an isean again."}
+              </p>
+              <div className="mt-10 sm:mt-12">
+                {!isLoggedIn? (
+                  <div className="sm:flex sm:justify-center lg:justify-start">
+                    <div className="rounded-md shadow">
+                      <button 
+                         onClick={()=>setShowSignup(true)}
+                         className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md
+                          text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                        Get started
+                      </button>
+                      </div>
+                      <div className="mt-3 sm:mt-0 sm:ml-3">
+                         <button
+                           onClick={()=>setShowLogin(true)}
+                           className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium round-md
+                            text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 ">
+                            Log in
+                         </button>
+                        </div>
+                    </div>
+                ):(
+                  <div className="sm:flex sm:justify-center lg:justify-start">
+                    <div className="rounded-md shadow">
+                      <button className="w-full flex-items-center justify-center  px-8 py-3 border border-transparent 
+                      text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                        Go to Dashboard
+                      </button>
+                      </div>
+                    </div>
+                )}
 
+              </div>
+            </div>
+            </div>
+            <SideHero/>
           </div>
 
         </div>
