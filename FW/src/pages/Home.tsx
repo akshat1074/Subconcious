@@ -1,6 +1,7 @@
 import { Brain, Menu, X } from "lucide-react"
 import { useState } from "react"
 import SideHero from "../components/SideHero";
+import Feature from "../components/Feature";
 
 
 const Home = () => {
@@ -191,8 +192,24 @@ const Home = () => {
             </div>
             </div>
             <SideHero/>
+            
           </div>
-
+          <div className="py-12 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Features</h2>
+              <p className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">Everything you need for better thinking</p>
+              <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                Streamline your thinking process and never lose an important idea again.
+              </p>
+            </div>
+            <div className="mt-10 ">
+               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                   <Feature/>
+               </div>
+            </div>
+            </div>
+        </div>
         </div>
         </div>
       </main>

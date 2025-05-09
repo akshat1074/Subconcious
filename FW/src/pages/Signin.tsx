@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { BACKEND_URL } from "../config";
+import { LogIn } from "lucide-react";
 
 export function Signin(){
     const usernameRef = useRef<HTMLInputElement|null>(null);
@@ -24,14 +25,40 @@ export function Signin(){
         navigate("/dashboard")
     }
 
-    return <div className="h-screen w-screen bg-gray flex justify-center items-center">
-         <div className="bg-white rounded-xl border min-w-48 p-8">
-            <Input reference={usernameRef} placeholder="Username"/>
-            <Input reference={passwordRef} placeholder="Password"/>
-            <div className="flex justify-center pt-4">
-                <Button onClick={signin} loading={false} variant="primary" text="Signin" fullWidth={true}/>
-            </div>
-         </div>
-    </div>
+    return(
+      <div className="fixed z-10 inset-0 -top-125 ">
+        <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+           <div className="fixed  transition-opacity" aria-hidden="true">
+              <div className="static  opacity-75"></div>
+           </div>
+           <span className="hidden sm:inline-block sm:middle sm:h-screen" aria-hidden="true"></span>
+           <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+            <div>
+                <div  className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100">
+                <LogIn className="h-6 w-6 text-indigo-600" />
+                </div>
+                <div className="mt-3 text-center sm:mt-5">
+                <h3 className="text-lg leading-6 font-medium text-gray-900">Log in to your account</h3>
+                <div className="mt-3">
+                <Input reference={usernameRef} placeholder="Username"/>
+                </div>
+                <div className="mt-2">
+                  <Input reference={passwordRef} placeholder="Password"/>
+                </div> 
+                <div className="mt-5 sm:mt-6">
+                <button
+                          onClick={signin}
+                          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                          Log in
+                        </button>
 
+                </div>
+                </div>
+            </div>
+           </div>
+        </div>
+      </div>
+    
+    )
 }
