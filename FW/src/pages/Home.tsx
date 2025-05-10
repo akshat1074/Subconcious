@@ -60,7 +60,7 @@ const Home = () => {
              <div className="flex items-center">
                <div className="flex flex-shrink-0 items-center">
                    <Brain className="h-8 w-8 text-indigo-600"/>
-                   <span className="ml-2 text-xl font-bold text-gray-900">Subconscious</span>
+                   <span className="ml-2 text-2xl font-bold text-indigo-900 font-mono">Subconscious</span>
                </div>
              </div>
 
@@ -155,7 +155,7 @@ const Home = () => {
               <p className="mt-3 text-lgxt-base text-gray-600 sm:mt-5 sm:text-xl lg:text-lg">
                 {isLoggedIn 
                   ? `Welcome back,${username}! Continue organizing your thoughts and notes in your personal knowledge base.` 
-                  : "Capture,organize,and retrieve your thoughts and notes. Never lose an isean again."}
+                  : "Capture,organize,and retrieve your thoughts and notes. Never lose an idea again."}
               </p>
               <div className="mt-10 sm:mt-12">
                 {!isLoggedIn? (
@@ -191,7 +191,10 @@ const Home = () => {
               </div>
             </div>
             </div>
-            <SideHero/>
+            <div className="flex justify-start items-center mb-18 pl-36 ">
+            <SideHero />
+            </div>
+            
             
           </div>
           <div className="py-12 bg-white">
@@ -205,7 +208,25 @@ const Home = () => {
             </div>
             <div className="mt-10 ">
                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                   <Feature/>
+                   <Feature
+                     icon='Brain'
+                     title="Capture Ideas Instantly"
+                     subtitle="Quickly note down your thoughts wherever you are. No more lost ideas or forgotten insights."
+                     />
+                   
+                   
+                   
+                   <Feature
+                     icon='FileText'
+                     title="Organize Effortlessly"
+                     subtitle="Connect notes, build knowledge webs, and create a personal system that works for you."
+                     />
+
+                   <Feature
+                     icon='Search'
+                     title="Find Anything Fast"
+                     subtitle=" Powerful search and connections help you rediscover your ideas exactly when you need them."/>  
+                     
                </div>
             </div>
             </div>
