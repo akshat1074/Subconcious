@@ -1,4 +1,4 @@
-import { Brain, FileText,Search,type LucideIcon } from "lucide-react"
+import { Brain, FileText,Search } from "lucide-react"
 
 interface Featureprops {
      icon: keyof typeof iconComponents;

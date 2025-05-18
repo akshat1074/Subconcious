@@ -14,11 +14,13 @@
     "@types/axios": "^0.14.4",
     "@types/tailwindcss": "^3.1.0",
     "axios": "^1.9.0",
+    "clsx": "^2.1.1",
     "lucide-react": "^0.507.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.6.0",
-    "tailwind": "^2.3.1"
+    "tailwind": "^2.3.1",
+    "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

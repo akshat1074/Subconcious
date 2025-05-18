@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { ReactElement, ReactNode, useRef, useState } from "react";
 import { CrossIcon } from "../icons/CrossIcon";
 import { Button } from "./Button";
 import { Input } from "./Input";
@@ -10,8 +10,13 @@ enum ContentType {
     Twitter = "twitter"
 }
 
+interface CreateContentModalProps{
+    open:ReactElement,
+    onClose:ReactElement
+}
+
 // controlled component
-export function CreateContentModal({open, onClose}) {
+export function CreateContentModal({open, onClose}:CreateContentModalProps) {
     const titleRef = useRef<HTMLInputElement|null>(null);
     const linkRef = useRef<HTMLInputElement|null>(null);
     const [type, setType] = useState(ContentType.Youtube);
@@ -48,8 +53,8 @@ export function CreateContentModal({open, onClose}) {
                             </div>
                         </div>
                         <div>
-                            <Input reference={titleRef} placeholder={"Title"} />
-                            <Input reference={linkRef} placeholder={"Link"} />
+                            <Input reference={titleRef} placeholder={"Title"} type="text" />
+                            <Input reference={linkRef} placeholder={"Link"} type="text" />
                         </div>
                         <div>
                             <h1>Type</h1>

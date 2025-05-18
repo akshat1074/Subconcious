@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../config";
 import { Input } from "../components/Input";
-import { Button } from "../components/Button";
 import { LogIn } from "lucide-react";
 
 export function Signup(){
