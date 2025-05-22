@@ -6,7 +6,7 @@ import { Button } from "../components/Button";
 import { PlusIcon } from "../icons/PlusIcon";
 import { BACKEND_URL } from "../config";
 import { ShareIcon } from "../icons/ShareIcon";
-import { Card } from "../components/Card";
+import Card from "../components/Card";
 import axios from "axios";
 
 
@@ -46,7 +46,8 @@ export function Dashboard(){
              </Button>
 
          </div>
-         <div className="flex gap-4 flex-wrap">
+         <div className="flex gap-4 flex-wrap pt-4">
+         
          {contents.map(({type, link, title}) => <Card 
             type={type}
             link={link}
