@@ -7,7 +7,8 @@ import axios from "axios";
 
 enum ContentType {
     Youtube = "youtube",
-    Twitter = "twitter"
+    Twitter = "twitter",
+    Notes="notes"
 }
 
 interface CreateContentModalProps{
@@ -41,10 +42,10 @@ export function CreateContentModal({open, onClose}:CreateContentModalProps) {
 
     return <div>
         {open && <div> 
-            <div className="w-screen h-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex justify-center">
+            <div className="w-screen h-screen bg-slate-500 fixed top-0 left-0 z-10 opacity-60 flex justify-center">
                
             </div>
-            <div className="w-screen h-screen fixed top-0 left-0 flex justify-center">
+            <div className="w-screen h-screen fixed top-0 left-0 z-10 flex justify-center">
                 <div className="flex flex-col justify-center">
                     <span className="bg-white opacity-100 p-4 rounded fixed">
                         <div className="flex justify-end">
@@ -64,6 +65,9 @@ export function CreateContentModal({open, onClose}:CreateContentModalProps) {
                                 }}></Button>
                                 <Button text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
                                     setType(ContentType.Twitter)
+                                }}></Button>
+                                <Button text="Notes" variant={type === ContentType.Notes ? "primary" : "secondary"} onClick={() => {
+                                    setType(ContentType.Notes)
                                 }}></Button>
                             </div>
                         </div>

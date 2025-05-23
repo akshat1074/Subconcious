@@ -1,10 +1,11 @@
+import { FileText, Twitter, Youtube } from "lucide-react";
 import { PlusIcon } from "../icons/PlusIcon";
 import { ShareIcon } from "../icons/ShareIcon";
 import React from 'react';
 interface CardProps {
     title: string;
     link: string;
-    type: 'youtube' | 'twitter' | 'other';
+    type: 'youtube' | 'twitter' | 'Articles'|'notes';
   }
   
   // Function to extract YouTube video ID from various URL formats
@@ -41,7 +42,31 @@ interface CardProps {
   
   const Card: React.FC<CardProps> = ({ title, link, type }) => {
     return (
-      <div className=" w-72  h-72 bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+      <div className="static w-72  h-68 bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+        {type=== "youtube" &&(
+              <div className="flex items-center justify-start gap-1">
+                <Youtube className="text-gray-500"/>
+                <h6 className="text-gray-500">Youtube</h6>
+                </div>
+          
+               ) 
+          }
+          {type=== "twitter" &&(
+              <div className="flex items-center justify-start gap-1">
+                <Twitter className="text-gray-500"/>
+                <h6 className="text-gray-500">Tweets</h6>
+                </div>
+          
+               ) 
+          }
+          {type=== "notes" &&(
+              <div className="flex items-center justify-start gap-1">
+                <FileText className="text-gray-500"/>
+                <h6 className="text-gray-500">Notes</h6>
+                </div>
+          
+               ) 
+          }
         {/* Header */}
         <div className="flex items-center justify-between ">
           <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
@@ -69,9 +94,9 @@ interface CardProps {
             }
   
             return (
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <div className="relative w-full bottom-10 inset-x-0 " style={{ paddingBottom: '56.25%' }}>
                 <iframe
-                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                  className=" absolute top-0 left-0 w-full h-full rounded-lg"
                   src={embedUrl}
                   title="YouTube video player"
                   frameBorder="0"
@@ -96,7 +121,7 @@ interface CardProps {
             </blockquote>
           )}
   
-          {type === "other" && (
+          {type === "notes" && (
             <div className="bg-gray-50 p-4 rounded-lg">
               <a 
                 href={link}
