@@ -1,0 +1,82 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgvector(map: "vector", schema: "public")]
+}
+
+model User {
+  id            String     @id @default(cuid())
+  name          String
+  email         String     @unique
+  password      String?
+  image         String?
+  provider      String     @default("credentials")
+  providerId    String?
+  archivePin    String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  contents      Content[]
+  categories    Category[]
+
+  @@map("users")
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  color     String    @default("#6366f1")
+  icon      String    @default("folder")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  contents  Content[]
+
+  @@unique([userId, name])
+  @@map("categories")
+}
+
+enum ContentType {
+  youtube
+  tweet
+  note
+  link
+}
+
+model Content {
+  id                 String      @id @default(cuid())
+  userId             String
+  user               User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type               ContentType
+  title              String
+  url                String?
+  content            String?
+  embedId            String?
+  shareToken         String?     @unique
+  isPublic           Boolean     @default(false)
+  previewImage       String?
+  previewDescription String?
+  previewSiteName    String?
+  previewFavicon     String?
+  categoryId         String?
+  category           Category?   @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  tags               String[]    @default([])
+  isFavorite         Boolean     @default(false)
+  isPinned           Boolean     @default(false)
+  isArchived         Boolean     @default(false)
+  viewCount          Int         @default(0)
+  embedding          Unsupported("vector(3072)")?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  @@index([userId, isArchived])
+  @@index([userId, type])
+  @@index([userId, isFavorite])
+  @@index([userId, categoryId])
+  @@map("contents")
+}
