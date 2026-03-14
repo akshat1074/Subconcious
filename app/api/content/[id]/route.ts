@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server'
 import { db } from '@/lib/db'
 import { requireSession } from '@/lib/session'
 import { apiError, apiSuccess } from '@/lib/utils'
-import { serializeContent } from '../route'
+import { serializeContent } from '@/lib/serialize'
 import { buildVectorText } from '@/lib/metadata'
 import { upsertEmbedding } from '@/lib/ai'
 

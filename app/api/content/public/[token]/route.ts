@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server'
 import { db } from '@/lib/db'
 import { apiError, apiSuccess } from '@/lib/utils'
-import { serializeContent } from '../../route'
+import { serializeContent } from '@/lib/serialize'
 
 export async function GET(_: NextRequest, { params }: { params: Promise<{ token: string }> }) {
   const { token } = await params

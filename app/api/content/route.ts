@@ -6,11 +6,7 @@ import { upsertEmbedding } from '@/lib/ai'
 import { apiError, apiSuccess } from '@/lib/utils'
 import { v4 as uuidv4 } from 'uuid'
 import { Prisma } from '@prisma/client'
-
-export function serializeContent(item: any) {
-  const { previewImage, previewDescription, previewSiteName, previewFavicon, embedding, ...rest } = item
-  return { ...rest, preview: { image: previewImage, description: previewDescription, siteName: previewSiteName, favicon: previewFavicon } }
-}
+import { serializeContent } from '@/lib/serialize'
 
 export async function GET(req: NextRequest) {
   try {
