@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 
 interface Message { id: string; role: 'user' | 'assistant'; content: string; loading?: boolean }
 
-const WELCOME = "Hi! I have access to everything in your vault. I use Groq (Llama 3.3) + Gemini embeddings to search your content semantically. Ask me anything."
+const WELCOME = "Hi! I have access to everything in your vault. I use embeddings to search your content semantically. Ask me anything."
 
 export default function ChatPanel() {
   const dispatch = useAppDispatch()
