@@ -14,7 +14,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
               Your second brain — organized, searchable, always within reach.
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Save YouTube videos, tweets, notes, and links. Chat with your vault.
+              Save YouTube videos, tweets, notes, and links. Chat with your vault, and much more.
             </p>
           </div>
         </div>
