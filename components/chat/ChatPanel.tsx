@@ -100,9 +100,7 @@ export default function ChatPanel() {
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
           </button>
         </div>
-        <p className="text-[10px] text-muted-foreground/60 mt-2 text-center">
-          Powered by Groq (Llama 3.3-70b) + Gemini text-embedding-004
-        </p>
+       
       </div>
     </div>
   )
